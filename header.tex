@@ -1,0 +1,72 @@
+\documentclass[a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lastpage}
+\usepackage{amsmath}
+\usepackage{fancyhdr}
+\usepackage{tabularx}
+\usepackage{colortbl}
+\usepackage{booktabs}
+\usepackage{tikz}
+
+\pagestyle{fancy}
+\usetikzlibrary{decorations.pathmorphing,shapes,arrows,positioning,calc}
+\pgfdeclarelayer{background}
+\pgfdeclarelayer{foreground}
+\pgfsetlayers{background,main,foreground}
+
+\newcommand{\revisionno}{}
+\newcommand{\docref}{}
+\newcommand{\approved}{}
+\newcommand{\prepared}{}
+\newcommand{\approveddate}{}
+\newcommand{\secrecy}{}
+\newcommand{\docname}{}
+\newcommand{\docno}{}
+
+\fancyhead[l]{
+\begin{tikzpicture}
+  \node (tbl) {
+    \begin{tabularx}{\linewidth}{p{0.3\linewidth}p{0.05\linewidth}p{0.14\linewidth}p{0.24\linewidth}r}
+      %% \arrayrulecolor{purple}
+      \multicolumn{2}{l}{\resizebox{!}{8mm}{\includegraphics{logo-blue.jpg}}} &
+      \multicolumn{2}{l}{\secrecy} & \thepage~(\pageref{LastPage}) \\
+      %% \multicolumn{2}{l}{Prepared (and subject to ...)} & \multicolumn{3}{l}{}
+      %% \multirow{2}{*}{}
+      \multicolumn{2}{l}{{\tiny Prepared (and subject to ...)}} &
+      \multicolumn{3}{l}{{\tiny Document number}}\\
+      \multicolumn{2}{l}{\prepared} &
+      \multicolumn{3}{l}{\docno}\\\hline
+      \tiny Approved & \tiny Check & \tiny Date & \tiny Rev & \tiny
+      References\\
+      \approved & & \approveddate & \revisionno & \\
+    \end{tabularx}
+  };
+  \begin{pgfonlayer}{background}
+    % %% Outer borders
+    % \draw     ($(tbl.north west)-(0,1.05)+(0.13,0)$)
+    % rectangle ($(tbl.south east)-(0.13,0)+(0,0.13)$);
+    % %% Mid table line
+    % \draw ($(tbl.north)-(1.1,1.05)$)
+    % --    ($(tbl.south)+(0,0.15)-(1.1,0)$);
+    % %% Small Checked line
+    % \draw ($(tbl.center)-(2.1,0.46)$)
+    % --    ($(tbl.south)-(2.1,0)+(0,0.7)$);
+    % %% Small Rev line
+    % \draw ($(tbl.center)+(1,0)-(0,0.46)$)
+    % --    ($(tbl.south)+(1,0.7)$);
+  \end{pgfonlayer}
+\end{tikzpicture}
+}
+
+\renewcommand{\headrulewidth}{0pt}
+\topmargin -20.0pt
+\headheight 70.0pt
+
+
+\begin{document}
+%  \input{title}
+
+abcd
+
+\end{document}
